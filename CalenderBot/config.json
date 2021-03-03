@@ -1,0 +1,10 @@
+{
+  "Host": "127.0.0.1",
+  "Port": 11451,
+  "AuthKey": "6be40cb9b6af45b288b289e6c5b05ec4",
+  "Administrator": 3197173556,
+  "RootPath": "C:\\Users\\DingJ\\Desktop\\CalenderBot\\CalenderBot\\CalenderBot",
+  "CMHttpPath": "C:\\Users\\DingJ\\Desktop\\CalenderBot\\cm-http-api\\cm-http-api",
+  "QQNum": 3033173616,
+  "CommandStart": ["cl", "calender"]
+}
