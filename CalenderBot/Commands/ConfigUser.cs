@@ -10,10 +10,10 @@ namespace CalenderBot.Commands
         {
             if (args.ConfigInGroup == false)
             {
-                await session.RevokeMessageAsync(((SourceMessage)e.Chain[0]).Id);
                 await session.SendGroupMessageAsync(e.Sender.Group.Id,
-                                                    new PlainMessage("警告：未提供命令参数-g的情况下在群内试图配置用户信息。\n" +
-                                                        "为保证账号安全，停止了此操作并撤回了信息。"));
+                                    new PlainMessage("警告：未提供命令参数-g的情况下在群内试图配置用户信息。\n" +
+                                        "为保证账号安全，停止了此操作并尝试撤回了信息。"));
+                await session.RevokeMessageAsync(((SourceMessage)e.Chain[0]).Id);
                 return;
             }
             await session.SendGroupMessageAsync(e.Sender.Group.Id, new PlainMessage("正在保存..."));

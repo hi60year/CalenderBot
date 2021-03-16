@@ -20,7 +20,7 @@ namespace CalenderBot
 
         static Config()
         {
-            using var reader = new StreamReader("C:\\Users\\DingJ\\Desktop\\CalenderBot\\CalenderBot\\CalenderBot\\config.json");
+            using var reader = new StreamReader("D:\\CalenderBot\\CalenderBot\\config.json");
             var configData = (JObject)JsonConvert.DeserializeObject(reader.ReadToEndAsync().GetAwaiter().GetResult());
             Host = (string)configData["Host"];
             Port = (int)configData["Port"];

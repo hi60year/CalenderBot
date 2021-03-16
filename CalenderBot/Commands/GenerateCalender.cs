@@ -28,7 +28,7 @@ namespace CalenderBot.Commands
             var process = new Process();
             process.StartInfo.FileName = "powershell";
             process.StartInfo.UseShellExecute = false;
-            process.StartInfo.CreateNoWindow = true;
+            process.StartInfo.CreateNoWindow = false;
             process.StartInfo.RedirectStandardInput = true;
             var user = await User.TryLoad(e.Sender.Id);
             if (!user.Configed)
