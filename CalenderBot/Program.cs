@@ -13,6 +13,7 @@ namespace CalenderBot
             var options = new MiraiHttpSessionOptions(Host, Port, AuthKey);
             await using var session = new MiraiHttpSession();
             await session.ConnectAsync(options, QQNum);
+            session.GroupMessageEvt += MessageQueueListener.Listener;
             session.AddPlugin(new Commands.GroupCommandForwarder());
             Tests.TestRuner.Run();
             while(true)

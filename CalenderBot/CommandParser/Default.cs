@@ -25,5 +25,8 @@ namespace CalenderBot.CommandParser
 
         [Option("show-class-id", HelpText = "显示班级号")]
         public bool ShowClassId { get; set; }
+
+        [Option('d', "days-after", HelpText = "显示n天后的课程表", Default = 0)]
+        public int DaysAfter { get; set; }
     }
 }

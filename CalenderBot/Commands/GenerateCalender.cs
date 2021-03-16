@@ -25,7 +25,7 @@ namespace CalenderBot.Commands
                     return;
                 }
             }
-            var process = new Process();
+            using var process = new Process();
             process.StartInfo.FileName = "powershell";
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.CreateNoWindow = false;
@@ -51,6 +51,13 @@ $@"echo ""{user.Username} {user.Password}
 {Config.RootPath}\Users\{e.Sender.Id}\calender.json"" | python getTimeTable.py
 ");
             process.StandardInput.WriteLine("exit");
+            _ = Task.Run(
+                async () =>
+                {
+                    await Task.Delay(20000);
+                    process.Close();
+                }
+            );
             int msgid = await session.SendGroupMessageAsync(e.Sender.Group.Id, new PlainMessage("正在获取课表，这可能需要一定的时间。"));
             await Task.Run(
                 async () => {

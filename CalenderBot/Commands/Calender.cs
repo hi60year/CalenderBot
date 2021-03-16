@@ -106,18 +106,18 @@ namespace CalenderBot.Commands
             catch (Exception ex)
             { await session.SendGroupMessageAsync(e.Sender.Group.Id, new PlainMessage($"发生了错误：{ex.Message}")); }
             var calender = response.data;
-            var tomorrow = DateTime.Now;
+            var today = DateTime.Now.AddDays(args.DaysAfter);
             var courses = calender
                           .Where(c => c.teachingWeek != null
-                                 && c.teachingWeek.PadRight(30, '0')[(int)((tomorrow - new DateTime(2021, 3, 1)).TotalDays / 7)] == '1'
-                                 && c.weekDay == ((int)tomorrow.DayOfWeek).ToString());
+                                 && c.teachingWeek.PadRight(30, '0')[(int)((today - new DateTime(2021, 3, 1)).TotalDays / 7)] == '1'
+                                 && c.weekDay == ((int)today.DayOfWeek).ToString());
             if (courses.Any())
             {
-                await session.SendGroupMessageAsync(e.Sender.Group.Id, new PlainMessage($"您今天的课程列表如下:\r\n{courses.Aggregate("", (lhs, rhs) => lhs + "\r\n" + CourseMessageSender(args, rhs).GetAwaiter().GetResult())}"));
+                await session.SendGroupMessageAsync(e.Sender.Group.Id, new PlainMessage($"您{(args.DaysAfter == 0 ? "今天" : $"{args.DaysAfter}天后")}的课程列表如下:\r\n{courses.Aggregate("", (lhs, rhs) => lhs + "\r\n" + CourseMessageSender(args, rhs).GetAwaiter().GetResult())}"));
             }
             else
             {
-                await session.SendGroupMessageAsync(e.Sender.Group.Id, new PlainMessage("您今天没有课程哦~"));
+                await session.SendGroupMessageAsync(e.Sender.Group.Id, new PlainMessage($"您{(args.DaysAfter == 0 ? "今天" : $"{ args.DaysAfter }天后")}没有课程哦~"));
             }
 
         }
