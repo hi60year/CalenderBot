@@ -41,37 +41,37 @@ namespace CalenderBot.Commands
                 case TimeSpan s when s < new TimeSpan( 8, 30, 0):
                     period = 0;
                     break;
-                case TimeSpan s when s < new TimeSpan( 9, 15, 0):
+                case TimeSpan s when s < new TimeSpan( 9, 25, 0):
                     period = 1;
                     break;
-                case TimeSpan s when s < new TimeSpan(10, 10, 0):
+                case TimeSpan s when s < new TimeSpan(10, 30, 0):
                     period = 2;
                     break;
-                case TimeSpan s when s < new TimeSpan(11, 15, 0):
+                case TimeSpan s when s < new TimeSpan(11, 25, 0):
                     period = 3;
                     break;
-                case TimeSpan s when s < new TimeSpan(12, 10, 0):
+                case TimeSpan s when s < new TimeSpan(13, 30, 0):
                     period = 4;
                     break;
-                case TimeSpan s when s < new TimeSpan(14, 15, 0):
+                case TimeSpan s when s < new TimeSpan(14, 25, 0):
                     period = 5;
                     break;
-                case TimeSpan s when s < new TimeSpan(15, 10, 0):
+                case TimeSpan s when s < new TimeSpan(15, 20, 0):
                     period = 6;
                     break;
-                case TimeSpan s when s < new TimeSpan(16,  5, 0):
+                case TimeSpan s when s < new TimeSpan(16, 25, 0):
                     period = 7;
                     break;
-                case TimeSpan s when s < new TimeSpan(17, 10, 0):
+                case TimeSpan s when s < new TimeSpan(17, 20, 0):
                     period = 8;
                     break;
-                case TimeSpan s when s < new TimeSpan(18,  5, 0):
+                case TimeSpan s when s < new TimeSpan(19,  0, 0):
                     period = 9;
                     break;
-                case TimeSpan s when s < new TimeSpan(19, 45, 0):
+                case TimeSpan s when s < new TimeSpan(19, 55, 0):
                     period = 10;
                     break;
-                case TimeSpan s when s < new TimeSpan(20, 40, 0):
+                case TimeSpan s when s < new TimeSpan(20, 50, 0):
                     period = 11;
                     break;
                 case TimeSpan s when s < new TimeSpan(21, 35, 0):
