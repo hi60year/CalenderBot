@@ -15,6 +15,7 @@ namespace CalenderBot
             await session.ConnectAsync(options, QQNum);
             session.GroupMessageEvt += MessageQueueListener.Listener;
             session.AddPlugin(new Commands.GroupCommandForwarder());
+            session.AddPlugin(new Commands.TempCommandForwarder());
             Tests.TestRuner.Run();
             while(true)
             {

@@ -21,5 +21,12 @@ namespace CalenderBot.Commands
             bool ok = await user.TrySave();
             await session.SendGroupMessageAsync(e.Sender.Group.Id, new PlainMessage(ok ? "成功更改了配置。" : "抱歉，遇到了错误，请稍后再试。"));
         }
+        public static async Task RunTemp(CommandParser.Config args, MiraiHttpSession session, ITempMessageEventArgs e)
+        {
+            await session.SendGroupMessageAsync(e.Sender.Group.Id, new AtMessage(e.Sender.Id), new PlainMessage("\r\n正在保存..."));
+            var user = new User(e.Sender.Id) { Username = args.Username, Password = args.Password };
+            bool ok = await user.TrySave();
+            await session.SendGroupMessageAsync(e.Sender.Group.Id, new AtMessage(e.Sender.Id), new PlainMessage(ok ? "\r\n成功更改了配置。" : "抱歉，遇到了错误，请稍后再试。"));
+        }
     }
 }
